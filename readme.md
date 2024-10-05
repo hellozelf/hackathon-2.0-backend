@@ -84,7 +84,7 @@ Now design and write an elegant system, with less error and fallback options.
 An automated system to pull `AIGeneratedComment` from the api, (See docs [Docs](https://www.postman.com/hellozelf/workspace/zelf-hackathon-backend/request/22135478-3c29af00-5b13-451e-8262-b5285d39b338?action=share&source=copy-link&creator=22135478&ctx=documentation))
 Always pull comments for the most recent contents.
 
-Some had confusions, regarding the api `content_id` and `url`,
+Some had confusions, regarding the api (Third Party API - HackAPI , Comment Post api and Comment Generate API) `content_id` and `url`,
 The `content_id` represents the `id` column in the `contents.models.Content` model, 
 `url` represents the `url` column in the `contents.models.Content`
 ```
