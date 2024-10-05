@@ -43,6 +43,7 @@ Navigate through the contents app and review the TODO comments to get an underst
 The given task continuously grabs content from ContentAPI [API Docs](https://www.postman.com/hellozelf/workspace/zelf-hackathon-backend/request/22135478-2cd2a12e-9e3e-4cc5-98e8-6628c40a0522?action=share&source=copy-link&creator=22135478&ctx=documentation)
 This api is open, it has no restriction.
 
+
 ### Task 2: Implement the third party api
 
 First Go through the documentation of this api. 
@@ -67,7 +68,7 @@ Always pull comments for the most recent contents.
 
 After getting the ai generated comments, send the content and the comment for comment push operation.
 
-Caveats:
+## To Do:
 
 1. You will only be able to post 1 comment per 30 seconds. so make your design in that way.
 2. If you face Errors like
@@ -77,3 +78,6 @@ Then retry for another 2-3 times.
 
 3. If you face errors like
 - `This content is not availalbe for commenting` then do not retry
+
+4. Make an api ( Post Request ), that will trigger comment posting, make sure to add authentication middleware. 
+Only authenticated users can trigger comments posting
