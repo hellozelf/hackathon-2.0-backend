@@ -24,8 +24,28 @@ Your adventure starts now—let’s see what you’re made of! 💪 Good luck! �
 
 Download the SQL data dump file and import it into the database.
 
-1. Seed SQL File: [Google Drive](https://drive.google.com/file/d/1KPg0kk6B_b7kR1qpZ58Q7wgR2rsuzW7A/view?usp=sharing)
+- Seed SQL File: [Google Drive](https://drive.google.com/file/d/1KPg0kk6B_b7kR1qpZ58Q7wgR2rsuzW7A/view?usp=sharing)
 
+
+1. Before downloading the sql file, run the docker compose to start the container 
+```shell
+docker-compose up -d --build
+```
+2. Now run the migrations
+```shell
+docker-compose exec app python /src/manage.py migrate
+```
+3. Download the sql file in the following directory
+> /db/data/<sqlfile.sql>
+
+4. Open the db container shell
+```shell
+docker-compose exec db sh 
+```
+5. Run the sql file
+```shell
+psql -d contentapi -U django -f /var/lib/postgresql/data/<downloaded sql file.sql>
+```
 
 Now, you’re all set! 🎉
 
