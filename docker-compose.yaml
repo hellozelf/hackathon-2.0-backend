@@ -1,0 +1,42 @@
+
+services:
+
+  db:
+    image: postgres:14.0-alpine
+    restart: unless-stopped
+    volumes:
+      - ./db/data/:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: contentapi
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: django
+    expose:
+      - 5432
+
+  redis:
+    restart: on-failure
+    image: redis:7.2.1
+    expose:
+      - 6379
+
+  app:
+    container_name: contentapi
+    build:
+      context: .
+      dockerfile: DockerFile
+    restart: unless-stopped
+    command: "python src/manage.py runserver 0.0.0.0:3000"
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - type: bind
+        source: ./src
+        target: /src
+    environment:
+      DATABASE_URL: postgres://django:django@db/contentapi
+      REDIS_URL: redis://redis:6379/1

@@ -1,0 +1,7 @@
+.venv
+db/data/*
+db/data_2/*
+db/dump.sql
+.idea
+reset.zsh
+src/script.py
